@@ -1,0 +1,29 @@
+class Main
+{
+public static int Solution(int[] array)
+{
+   int ans=Integer.MAX_VALUE;
+   int start=0;
+   int end=array.length-1;
+   while(start<=end)
+   {
+       int mid=start+(end-start)/2;
+       if(array[start]<=array[mid])
+       {
+            ans=Math.min(ans,array[start]);
+           start=mid+1;
+       }
+       else
+       {
+           end=mid-1;
+           ans=Math.min(ans,array[end]);
+       }
+   }
+   return ans;
+}
+public static void main(String[] args)
+{
+ int[]array={4,5,6,7,0,1,2};
+ System.out.print(Solution(array));
+}
+}
